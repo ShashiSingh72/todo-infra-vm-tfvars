@@ -14,6 +14,7 @@ jobs:
     inputs:
       provider: 'azurerm'
       command: 'init'
+      workingDirectory: '$(System.DefaultWorkingDirectory)env/dev'
       backendServiceArm: 'kashi-dev-app'
       backendAzureRmStorageAccountName: 'statefile89234'
       backendAzureRmContainerName: 'statefile'
@@ -23,11 +24,4 @@ jobs:
     inputs:
       provider: 'azurerm'
       command: 'validate'
-
-  - task: TerraformTask@5
-    inputs:
-      provider: 'azurerm'
-      command: 'plan'
-      environmentServiceNameAzureRM: 'kashi-dev-app'
-
-  
+      workingDirectory: '$(System.DefaultWorkingDirectory)env/dev'
