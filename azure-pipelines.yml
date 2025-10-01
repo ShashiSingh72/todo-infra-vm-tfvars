@@ -3,7 +3,7 @@ trigger: none
 pool: dev-infra-pool
 
 jobs:
-- job: TERRAFORM INIT
+- job: TERRAFORM_INIT
   displayName: string 
   steps: 
   - task: TerraformInstaller@1
@@ -23,14 +23,20 @@ jobs:
     inputs:
       provider: 'azurerm'
       command: 'validate'
-
-jobs: 
- - job: 
-   displayName: TERRAFORM PLAN
-   steps: 
-   - task: TerraformTask@5
-     inputs:
-       provider: 'azurerm'
-       command: 'plan'
-       environmentServiceNameAzureRM: 'kashi-dev-app'
-
+# - job: 
+#   steps:
+#     - 
+# - task: TerraformTask@5
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'init'
+#     backendServiceArm: 'kashi-dev-app'
+#     backendAzureRmStorageAccountName: 'statefile89234'
+#     backendAzureRmContainerName: 'statefile'
+#     backendAzureRmKey: 'prod.terraform.tfstate'
+#  - task: TerraformTask@5
+#     inputs:
+#     provider: 'azurerm'
+#     command: 'plan'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)env/dev'
+#     environmentServiceNameAzureRM: 'kashi-dev-app'
