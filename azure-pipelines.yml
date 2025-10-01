@@ -4,10 +4,17 @@ pool: dev-infra-pool
 
 jobs:
 - job: TERRAFORM_INIT
-  displayName: string 
+  displayName: TERRAFORM_INIT
   steps: 
   - task: TerraformInstaller@1
     inputs:
       terraformVersion: 'latest'
 
-  
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'init'
+      backendServiceArm: 'kashi-dev-app'
+      backendAzureRmStorageAccountName: 'statefile89234'
+      backendAzureRmContainerName: 'statefile'
+      backendAzureRmKey: 'prod.terraform.tfstate'
