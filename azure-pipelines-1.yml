@@ -10,12 +10,3 @@ jobs:
     inputs:
       terraformVersion: 'latest'
 
-  - task: TerraformTask@5
-    inputs:
-      provider: 'azurerm'
-      command: 'init'
-      workingDirectory: 'env/dev/'
-      backendServiceArm: 'kashi-dev-app'
-      backendAzureRmStorageAccountName: 'devstg72'
-      backendAzureRmContainerName: 'devcontainer72'
-      backendAzureRmKey: 'terraform.tfstate'
