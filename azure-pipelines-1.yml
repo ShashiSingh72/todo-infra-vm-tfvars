@@ -14,7 +14,7 @@ jobs:
     inputs:
       provider: 'azurerm'
       command: 'init'
-      workingDirectory: 'C:\vsts-agent-win-x64-4.261.0\_work\3\s\env\dev\main.tf'
+      workingDirectory: 'env/dev/'
       backendServiceArm: 'kashi-dev-app'
       backendAzureRmStorageAccountName: 'devstg72'
       backendAzureRmContainerName: 'devcontainer72'
