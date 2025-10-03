@@ -22,3 +22,29 @@ jobs:
       backendAzureRmStorageAccountName: 'devstg72'
       backendAzureRmContainerName: 'devcontainer72'
       backendAzureRmKey: 'terraform.tfstate'
+
+- job: TERRAFORM_PLAN
+  displayName: TERRAFORM_PLAN
+  steps: 
+
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'init'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/env/dev'
+      backendServiceArm: 'kashi-dev-app'
+      backendAzureRmStorageAccountName: 'devstg72'
+      backendAzureRmContainerName: 'devcontainer72'
+      backendAzureRmKey: 'terraform.tfstate'
+
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'validate'
+
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'plan'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/env/dev'
+      environmentServiceNameAzureRM: 'kashi-dev-app'
