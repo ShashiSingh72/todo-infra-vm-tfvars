@@ -22,6 +22,7 @@ jobs:
       backendAzureRmKey: 'terraform.tfstate'
 
 - job: TERRAFORM_PLAN
+  dependsOn: TERRAFORM_INIT
   displayName: TERRAFORM_PLAN
   steps: 
 
