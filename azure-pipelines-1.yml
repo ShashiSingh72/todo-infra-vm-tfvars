@@ -9,9 +9,7 @@ jobs:
   - task: TerraformInstaller@1
     inputs:
       terraformVersion: 'latest'
-# C:\vsts-agent-win-x64-4.261.0\_work\3\s
-# C:\vsts-agent-win-x64-4.261.0\_work\3\s\env\dev
-# workingDirectory: '$(System.DefaultWorkingDirectory)/env/dev'
+
 
   - task: TerraformTask@5
     inputs:
